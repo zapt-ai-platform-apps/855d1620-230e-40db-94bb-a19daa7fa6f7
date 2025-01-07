@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';
 import * as Sentry from '@sentry/browser';
+import { ThemeProvider } from './context/ThemeContext';
 
 Sentry.init({
   dsn: import.meta.env.VITE_PUBLIC_SENTRY_DSN,
@@ -41,6 +42,8 @@ if (import.meta.env.VITE_PUBLIC_APP_ENV !== 'development') {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
   </React.StrictMode>
 );
